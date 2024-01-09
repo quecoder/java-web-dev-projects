@@ -55,5 +55,34 @@ public class MenuItem {
         return dateAdded;
     }
 
+    // TODO Define custom toString()
+    @Override
+    public String toString() {
+        String newText = isNew() ? " - NEW!" : "";
+        return name + newText + "\n" + description + " | $" + price;
+    }
 
+    // Define custom equals() method
+    @Override
+    public boolean equals(Object toBeCompared) {
+        if (this == toBeCompared) {
+            return true;
+        }
+        if (toBeCompared == null) {
+            return false;
+        }
+        if (getClass() != toBeCompared.getClass()) {
+            return false;
+        }
+        MenuItem otherItem = (MenuItem) toBeCompared;
+
+        return this.name.equals(otherItem.getName());
+    }
+
+    // TODO Define instance method isNew()
+    boolean isNew () {
+        LocalDate today = LocalDate.now();
+        double daysBetween = getDateAdded().until(today, ChronoUnit.DAYS);
+        return daysBetween < 90;
+    }
 }
