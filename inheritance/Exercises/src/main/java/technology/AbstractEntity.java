@@ -4,7 +4,7 @@ public abstract class AbstractEntity {
     private int id;
     private static int nextId = 1;
 
-    private AbstractEntity() {
+    AbstractEntity() {
         this.id = generateUniqueId();
     }
 

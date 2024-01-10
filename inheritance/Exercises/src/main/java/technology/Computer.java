@@ -1,11 +1,12 @@
 package technology;
 
-public class Computer {
+public class Computer extends AbstractEntity {
     private String brand;
     private String model;
     private double price;
 
     public Computer(String brand, String model, double price) {
+        super();
         this.brand = brand;
         this.model = model;
         this.price = price;
